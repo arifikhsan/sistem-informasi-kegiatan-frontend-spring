@@ -3,16 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-<div>
-    <h1>Daftar Kegiatan</h1>
-    <div>
-        <p th:text="'Hello, ' + ${todos}"></p>
-        <ol>
-            <li th:each="todo : ${todos}" th:text="${todo.getName()}"></li>
-        </ol>
+<div class="container">
+    <div class="mt-4">
+        <h1>Daftar Kegiatan</h1>
+    </div>
+    <div class="mt-4">
+        <table class="table table-borderless">
+            <thead>
+            <tr>
+                <th scope="col">Nama</th>
+                <th scope="col">Status</th>
+                <th scope="col">Aksi</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="todo : ${todos}">
+                <td th:text="${todo.getName()}"></td>
+                <td th:text="${todo.getDone() ? 'Selesai' : 'Belum Selesai'}"></td>
+                <td>
+                    <button class="btn btn-danger">Hapus</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="mt-6">
+            <h2>Tambah Kegiatan</h2>
+            <form class="form-inline mt-3">
+                <div class="form-group">
+                    <label for="name" class="sr-only">Membersihkan rumah</label>
+                    <input type="text" class="form-control" id="name" placeholder="Membersihkan rumah">
+                </div>
+                <button type="submit" onclick="apa()" class="ml-2 btn btn-primary">Tambahkan</button>
+            </form>
+        </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script th:src="@{/script.js}"></script>
 </body>
 </html>
