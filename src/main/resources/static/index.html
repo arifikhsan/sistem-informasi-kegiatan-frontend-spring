@@ -3,11 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Homepage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-<div>
-    <h1>Sistem Informasi Kegiatan Frontend</h1>
-    <p>Klik <a href="/kegiatan">disini</a></p>
+<div class="container py-5">
+    <div class="jumbotron">
+        <h1 class="display-4">Sistem Informasi Kegiatan</h1>
+        <p class="lead">
+            Proyek Sistem Informasi Kegiatan untuk memenuhi Tes Akhir Semester mata kuliah Pemrograman Basis Data 2.
+        </p>
+        <hr class="my-4">
+        <p>
+            Sistem informasi ini dibuat dengan menggunakan framework <a href="https://spring.io/projects/spring-boot" target="_blank">Spring Boot</a>.
+        </p>
+        <a class="btn btn-primary btn-lg" href="/kegiatan" role="button">Ke Beranda</a>
+    </div>
+    <div>
+        <h2>Deskripsi</h2>
+        <p>
+            Sistem ini terdiri dari dua proyek. Yang pertama, sisi backend untuk menyediakan web service RESTful API.
+            Dan yang kedua frontend. Untuk menggunakan web service dari backend.
+        </p>
+    </div>
+    <div>
+        <h2>Kode</h2>
+        <p>Kode sumber bisa ditemukan dari link dibawah ini.</p>
+        <p>
+            <a class="btn btn-primary" href="https://github.com/arifikhsan/sistem-informasi-kegiatan-backend-spring" target="_blank">Backend</a>
+            <a class="btn btn-primary ml-2" href="https://github.com/arifikhsan/sistem-informasi-kegiatan-frontend-spring" target="_blank">Frontend</a>
+            <a class="btn btn-primary ml-2" href="https://www.getpostman.com/collections/8344acadf5b847e0948e" target="_blank">Postman Collection</a>
+        </p>
+    </div>
+    <div>
+        <h2>Pembuat</h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Nama: Arif Ikhsanudin</li>
+            <li class="list-group-item">NIM: 1811021</li>
+        </ul>
+    </div>
 </div>
 </body>
 </html>
