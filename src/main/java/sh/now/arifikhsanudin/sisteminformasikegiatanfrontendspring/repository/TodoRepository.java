@@ -1,20 +1,35 @@
 package sh.now.arifikhsanudin.sisteminformasikegiatanfrontendspring.repository;
 
-import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.client.RestTemplate;
+import sh.now.arifikhsanudin.sisteminformasikegiatanfrontendspring.model.GetTodosResponse;
 import sh.now.arifikhsanudin.sisteminformasikegiatanfrontendspring.model.TodoModel;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class TodoRepository {
 
-    public WebClient client = WebClient.create("http://localhost:8080");
+    public String baseUrl = "http://localhost:8080";
+    public RestTemplate restTemplate = new RestTemplate();
 
-    public Iterable<TodoModel> all() {
-        WebClient.RequestHeadersSpec request = client.get().uri("/todo/all");
-        TodoModel res = request.retrieve().bodyToMono(TodoModel.class).block();
-        System.out.println(res);
-        ArrayList<TodoModel> todos = new ArrayList<TodoModel>();
-        todos.add(new TodoModel((long) 1, "aa", false));
+    public ArrayList<TodoModel> all() {
+        GetTodosResponse getTodosResponse = restTemplate.getForObject(baseUrl + "/todo/all", GetTodosResponse.class);
+        ArrayList<TodoModel> todos = new ArrayList<>();
+        if (getTodosResponse != null) {
+            todos = getTodosResponse.getData();
+        }
         return todos;
+    }
+
+    public void addTodo(TodoModel todoModel) {
+        restTemplate.postForObject(baseUrl + "/todo/add", todoModel, TodoModel.class);
+    }
+
+    public void toggleTodo(Long id) {
+        restTemplate.put(baseUrl + "/todo/toggle/" + id, null);
+    }
+
+    public void deleteTodo(Long id) {
+        restTemplate.delete(baseUrl + "/todo/destroy/" + id);
     }
 }

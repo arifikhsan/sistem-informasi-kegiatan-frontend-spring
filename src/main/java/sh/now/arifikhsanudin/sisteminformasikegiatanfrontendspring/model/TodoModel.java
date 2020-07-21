@@ -8,6 +8,10 @@ public class TodoModel {
     public TodoModel() {
     }
 
+    public TodoModel(String name) {
+        this.name = name;
+    }
+
     public TodoModel(String name, Boolean done) {
         this.name = name;
         this.done = done;
