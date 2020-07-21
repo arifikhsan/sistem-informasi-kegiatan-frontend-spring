@@ -5,7 +5,6 @@ import sh.now.arifikhsanudin.sisteminformasikegiatanfrontendspring.model.GetTodo
 import sh.now.arifikhsanudin.sisteminformasikegiatanfrontendspring.model.TodoModel;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class TodoRepository {
 
